@@ -54,6 +54,7 @@
     
     int x = LEFT_ALIGNMENT;
     int y = TOP_ALIGNMENT;
+    CGRect frame = self.frame;
     for(NSString *title in titles){
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,7 +76,9 @@
         [_buttons addObject:button];
         [self addSubview:button];
         x+=size.width+LEFT_ALIGNMENT;
+        frame.size.height = y+size.height+TOP_ALIGNMENT;
     }
+    self.frame = frame;
 }
 
 - (void) didSelectedButton : (UIButton *)button{
